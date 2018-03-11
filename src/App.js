@@ -2,21 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 import {saveAs} from 'file-saver'
 import vCard from 'simple-vcard'
-var jCard = {
-  id : 'dfcc7456-8f56-11e7-bc32-d76e3ad96585'
-  , displayName : 'Steve Baker'
-  , phone : '555-555-5555'
-  , email : 'steve-baker@notreal.com'
-  , address1 : 'Street Address 1'
-  , address2 : 'Street Address 2'
-  , city : 'LA'
-  , region : 'CA'
-  , postalCode : '30303'
-  , country : 'US'
-  , company : 'Steve\'s Company'
-  , title : "Manager"
-};
-var result = vCard.toVCard(jCard);
+let Card;
+const data = ()=>{
+  fetch('http://localhost:8888/data')
+  .then(res=>res.json())
+  .then(arr=>{
+    return Card=arr;
+  })
+  .then(console.log('DONE1'))
+
+}
 class App extends Component {
   state={
     Show:'flex',
@@ -54,9 +49,11 @@ class App extends Component {
     this.setState({Show:'flex',Msg:'none'});
   }
   down=()=>{
+  const result = vCard.toVCard(Card);
+  
     let filename = 'TEST'
     let text = result;
-    let blob = new Blob([text], {type: "vCard;charset=utf-8"});
+    let blob = new Blob(text, {type: "vCard;charset=utf-8"});
     saveAs(blob, filename+".vcf");
   }
   
