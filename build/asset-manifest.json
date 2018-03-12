@@ -1,14 +1,10 @@
 {
-  "main.css": "static/css/main.8c03f551.css",
-  "main.css.map": "static/css/main.8c03f551.css.map",
-  "main.js": "static/js/main.4e364e59.js",
-  "main.js.map": "static/js/main.4e364e59.js.map",
-  "static/media/add.png": "static/media/add.889f7853.png",
-  "static/media/mess.png": "static/media/mess.36e1b694.png",
-  "static/media/phone.png": "static/media/phone.85a4923f.png",
+  "main.css": "static/css/main.2f0b0836.css",
+  "main.css.map": "static/css/main.2f0b0836.css.map",
+  "main.js": "static/js/main.7ed1d400.js",
+  "main.js.map": "static/js/main.7ed1d400.js.map",
   "static/media/telegram.svg": "static/media/telegram.923e8051.svg",
-  "static/media/vcard.jpg": "static/media/vcard.e96fe93d.jpg",
-  "static/media/vcard_b.png": "static/media/vcard_b.ea32e1c0.png",
+  "static/media/vcard_rus.svg": "static/media/vcard_rus.d86d18f6.svg",
   "static/media/viber.svg": "static/media/viber.0b5453ed.svg",
   "static/media/whatsapp.svg": "static/media/whatsapp.c31f23dd.svg"
 }

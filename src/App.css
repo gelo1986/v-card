@@ -3,30 +3,24 @@
   color:white;
 }
 @media screen and (orientation:landscape){
-  .App{flex-direction: row;}
+  .App{flex-direction: column;justify-content: space-between;}
   .CardFace,.CardBack{width:60%;height: calc(60vw / 2)}
-  .Controls,.Messages{
-    flex-direction: column;
-    width: 30%;
-    height: 90%;
-  }
-  .close{
-    right:0;
-    top:calc(50% - 34px);
-  }
-}
-@media screen and (orientation:portrait){
-  .App{flex-direction: column;}
-  .CardFace,.CardBack{width:100%;height: calc(100vw / 2)}
   .Controls,.Messages{
     flex-direction: row;
     width: 100%;
-    height: 30%;
+    height: 128px;
   }
-  .close{
-    bottom:0;
-    left:calc(50% - 34px);
+  
+}
+@media screen and (orientation:portrait){
+  .App{flex-direction: column;}
+  .CardFace,.CardBack{width:90%;height: calc(90vw / 2)}
+  .Controls,.Messages{
+    flex-direction: row;
+    width: 100%;
+    height: 128px;
   }
+ 
 }
 
 .App{
@@ -47,16 +41,15 @@
   background-position: center center;
 
 }
-.CardFace{background-image: url('./Images/vcard.jpg');}
-.CardBack{background-image: url('./Images/vcard_b.png');}
+.CardFace{background-image: url('./Images/vcard_rus.svg');}
 .CardBack{display:none;}
 .Controls,.Messages{
   display: flex;
   justify-content: space-between;
 }
-.wbut,.close{
-  width:68px;
-  height:68px;
+.close{
+  width:48px;
+  height:48px;
   border-radius: 100%;
   background-repeat: no-repeat;
   background-size:cover;
@@ -66,31 +59,8 @@
 .Vbr{background-image: url('./Images/viber.svg');}
 .Whp{background-image: url('./Images/whatsapp.svg');}
 .Mail{background-image: url('./Images/email.png');}
-.Phn{background-image:url('./Images/phone.png');}
-.Msg{background-image:url('./Images/mess.png');}
-.AddContact{background-image: url('./Images/add.png');}
-.AddContact::before{
-  content:'Добавить';
 
-}
-.Phn::before{
-  content:'Позвонить';
-}
-.Msg::before{
-  content: 'Написать';
-}
-.AddContact::before,.Phn::before,.Msg::before{
-  margin-top:72px;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  text-align: center;
-  position: absolute;
-  width: 68px;
-  color:#555555;
-  text-transform: uppercase;
-}
+
 .msges{
   width: 68px;
   height: 68px;
@@ -101,6 +71,28 @@
 }
 .close{
   background-image: url('./Images/close.png');
-  position: fixed;
-
+}
+.svg_text{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  align-content:center;
+  text-align:center;
+}
+.svg{
+  width:50px;
+}
+.wbut{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  align-content:center;
+  font-size:1rem;
+  border-bottom:2px solid white;
+}
+.langChange{
+  position:fixed;
+  top:0;
 }
