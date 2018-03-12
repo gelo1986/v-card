@@ -82,7 +82,7 @@ class App extends PureComponent {1
     console.log(result)
     let filename = 'TEST'
     let text = result;
-    let blob = new Blob([text], {type: "vCard;charset=utf-8"});
+    let blob = new Blob([text], {type: "text/x-vcard;charset=utf-8"});
     saveAs(blob, filename+".vcf");
   }
   ch=()=>{
