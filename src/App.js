@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import './App.css'
 import {saveAs} from 'file-saver'
 import vCard from 'simple-vcard'
+
 let Card= {
   displayName : "Illin Nikita",
   phone : "+79260606060",
@@ -82,7 +83,7 @@ class App extends PureComponent {1
     console.log(result)
     let filename = 'TEST'
     let text = result;
-    let blob = new Blob([text], {type: "vCard;charset=utf-8"});
+    let blob = new Blob([text], {ContentType: "text/x-vcard;charset=utf-8"});
     saveAs(blob, filename+".vcf");
   }
   ch=()=>{
@@ -97,7 +98,7 @@ class App extends PureComponent {1
     }):this.setState({
       lang:{
         add:`ADD`,
-        add2:`to contacts`,
+        add2:`me`,
         call:`CALL`,
         me:`me`,
         mess:`WRITE`,
