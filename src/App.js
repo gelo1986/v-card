@@ -83,7 +83,7 @@ class App extends PureComponent {1
     console.log(result)
     let filename = 'TEST'
     let text = result;
-    let blob = new Blob([text], {ContentType: "text/plain;charset=utf-8"});
+    let blob = new Blob([text], {ContentType: "text/x-vCard;charset=iso-8859-1"});
     saveAs(blob, filename+".vcf");
   }
   ch=()=>{
@@ -115,4 +115,4 @@ class App extends PureComponent {1
 export default App;
 
 
-//contact format .vcf
+//changed charset of vcf and c-type
