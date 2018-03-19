@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import './App.css'
 import {saveAs} from 'file-saver'
 import vCard from 'simple-vcard'
-import VCARD from './json2vcard';
 let Card= {
   displayName : "Illin Nikita",
   phone : "+79260606060",
