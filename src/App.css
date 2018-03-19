@@ -2,6 +2,7 @@
   text-decoration: none;
   color:white;
 }
+
 @media screen and (orientation:landscape){
   .App{flex-direction: column;justify-content: space-between;}
   .CardFace,.CardBack{width:60%;height: calc(60vw / 2)}
