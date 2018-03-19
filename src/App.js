@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import './App.css'
 import {saveAs} from 'file-saver'
 import vCard from 'simple-vcard'
-
+import VCARD from './json2vcard';
 let Card= {
   displayName : "Illin Nikita",
   phone : "+79260606060",
@@ -79,12 +79,14 @@ class App extends PureComponent {1
     this.setState({Show:'flex',Msg:'none'});
   }
   down=()=>{
-  const result = vCard.toVCard(Card);
-    console.log(result)
-    let filename = 'TEST'
-    let text = result;
-    let blob = new Blob([text], {ContentType: "text/x-vCard;charset=iso-8859-1"});
+  const result = () =>vCard.toVCard(Card);
+    console.log(result())
+    let filename = 'vCard'
+    let text = result();
+    let blob = new Blob([text], {type: "text/x-vCard"});
     saveAs(blob, filename+".vcf");
+    saveAs(blob,'vcard.vcf');
+    saveAs(blob,'vcard.csv')
   }
   ch=()=>{
     this.state.rus?this.setState({
