@@ -72,20 +72,18 @@ class App extends PureComponent {1
     this.setState({Show:'none',Msg:'flex'});
   }
   sendMail=()=>{
-    return window.open('mailto:nikita.ilin@sms-online.com');
+    return window.open('mailto:nikita.ilin@sms-online.com','_self');
   }
   close=()=>{
     this.setState({Show:'flex',Msg:'none'});
   }
   down=()=>{
   const result = () =>vCard.toVCard(Card);
-    console.log(result())
     let filename = 'vCard'
     let text = result();
     let blob = new Blob([text], {type: "text/x-vCard"});
-    saveAs(blob, filename+".vcf");
     saveAs(blob,'vcard.vcf');
-    saveAs(blob,'vcard.csv')
+    
   }
   ch=()=>{
     this.state.rus?this.setState({
