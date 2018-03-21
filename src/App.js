@@ -2,6 +2,9 @@ import React, { PureComponent } from 'react';
 import './App.css'
 import {saveAs} from 'file-saver'
 import vCard from 'simple-vcard'
+
+
+
 let Card= {
   displayName : "Illin Nikita",
   phone : "+79260606060",
@@ -9,8 +12,6 @@ let Card= {
   address1 : "Москва, ул.Москвоская 2а",
   title : "Ильин Никита"
 };
-
-
 class App extends PureComponent {1
   state={
     Show:'flex',
@@ -20,15 +21,17 @@ class App extends PureComponent {1
       add2:`в контакты`,
       call:`ПОЗВОНИТЬ`,
       me:`мне`,
-      mess:`НАПИСАТЬ`
+      mess:`НАПИСАТЬ`,
+      card:`CardFace CardFaceRu`,
+      lch:`langChange flagEn`,
     },
     rus:null
   }
   render() {
     return (
       <div className="App">
-        <div className='langChange card-body' onClick={this.Lang}>RUS | EN</div>
-        <div className='CardFace'></div>
+        <div className={this.state.lang.lch} onClick={this.Lang}></div>
+        <div className ={this.state.lang.card} ></div>
         <div className='CardBack'></div>
         <div className='Controls'  style={{display:this.state.Show}}>
           <div className='wbut AddContact'onClick={this.down}>
@@ -92,7 +95,9 @@ class App extends PureComponent {1
         add2:`в контакты`,
         call:`ПОЗВОНИТЬ`,
         me:`мне`,
-        mess:`НАПИСАТЬ`
+        mess:`НАПИСАТЬ`,
+        card:`CardFace CardFaceRu`,
+        lch:`langChange flagEn`,
       }
     }):this.setState({
       lang:{
@@ -101,7 +106,10 @@ class App extends PureComponent {1
         call:`CALL`,
         me:`me`,
         mess:`WRITE`,
-      }
+        card:`CardFace CardFaceEn`,
+        lch:`langChange flagRu`,
+      },
+      
     })
   } 
   Lang=()=>{
