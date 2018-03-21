@@ -23,7 +23,7 @@
     right:calc(50vw - 24px);
   }
   .langChange{
-    position:fixed;
+    position:absolute;
     top:64px;
     left:32px;
   }
@@ -38,7 +38,7 @@
     height: 128px;
   }
   .langChange{
-    position:fixed;
+    position:absolute;
     top:96px;
   }
   .close{
