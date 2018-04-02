@@ -82,10 +82,9 @@ class App extends PureComponent {1
   }
   down=()=>{
   const result = () =>vCard.toVCard(Card);
-    let filename = 'vCard'
     let text = result();
     let blob = new Blob([text], {type: "text/x-vCard"});
-    saveAs(blob,'vcard.vcf');
+    saveAs(blob,'vCard.vcf');
     
   }
   ch=()=>{
