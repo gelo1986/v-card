@@ -5,13 +5,20 @@ import vCard from 'simple-vcard'
 
 
 
-let Card= {
+let CardEng= {
   displayName : "Illin Nikita",
-  phone : "+79260606060",
+  phone : "+421919313156",
   email : "illinnikita@gmail.com",
-  address1 : "Москва, ул.Москвоская 2а",
-  title : "Ильин Никита"
+  address1 : "80-154, Gustava Zemgala, Riga, 1039, Latvia",
+  title : "Ilin Nikita"
 };
+let CardRu={
+  displayName : "Ильин Никита",
+  phone : "+79153602266",
+  email : "nikita.ilin@sms-online.com",
+  address1 : "Москва,Маршала Рыбалко 2 к.6",
+  title : "Ильин Никита"
+}
 class App extends PureComponent {1
   state={
     Show:'flex',
@@ -25,6 +32,7 @@ class App extends PureComponent {1
       card:`CardFace CardFaceRu`,
       lch:`langChange flagEn`,
     },
+    card:'',
     rus:null
   }
   render() {
@@ -81,7 +89,7 @@ class App extends PureComponent {1
     this.setState({Show:'flex',Msg:'none'});
   }
   down=()=>{
-  const result = () =>vCard.toVCard(Card);
+  const result = () =>vCard.toVCard(this.state.card);
     let text = result();
     let blob = new Blob([text], {type:"application/vcf; charset=utf-8"});
     saveAs(blob,'vCard.vcf');
@@ -97,7 +105,8 @@ class App extends PureComponent {1
         mess:`НАПИСАТЬ`,
         card:`CardFace CardFaceRu`,
         lch:`langChange flagEn`,
-      }
+      },
+      card:CardRu
     }):this.setState({
       lang:{
         add:`ADD`,
@@ -108,6 +117,7 @@ class App extends PureComponent {1
         card:`CardFace CardFaceEn`,
         lch:`langChange flagRu`,
       },
+      card:CardEng
       
     })
   } 
