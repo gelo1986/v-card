@@ -58,8 +58,8 @@
   }
   .langChange{
     position:absolute;
-    top:24px;
-    left:24px;
+    top:120px;
+    left:48px;
   }
   .close{
     width:28px;
@@ -97,18 +97,18 @@
 } */
 @media only screen 
   and (min-device-height: 812px) 
-  
-  and (-webkit-min-device-pixel-ratio: 1.5) {
+  and (orientation:portrait) {
     .CardFace,.CardBack{width:80%;height: calc(80vw / 1.8)}
     .Controls,.Messages{
       flex-direction: row;
       width: 80%;
       height: 80px;
-      position:absolute;
-      margin-bottom:80px;
+      position: relative;
+      bottom:80px;
     }
 }
- 
+
+
 @media only screen 
   and (min-device-width: 1024px) 
   and (max-device-width: 1366px) 
