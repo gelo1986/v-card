@@ -8,7 +8,7 @@ import vCard from 'simple-vcard'
 let CardEng= {
   displayName : "Illin Nikita",
   phone : "+421919313156",
-  email : "illinnikita@gmail.com",
+  email : "illinnikita@sms-online.com",
   address1 : "80-154, Gustava Zemgala, Riga, 1039, Latvia",
   title : "Ilin Nikita"
 };
@@ -24,30 +24,32 @@ class App extends PureComponent {1
     Show:'flex',
     Msg:'none',
     lang:{
-      add:`ДОБАВИТЬ`,
-      add2:`в контакты`,
-      call:`ПОЗВОНИТЬ`,
-      me:`мне`,
-      mess:`НАПИСАТЬ`,
+      add:`Добавить`,
+      call:`Позвонить`,
+      mess:`Написать`,
       card:`CardFace CardFaceRu`,
       lch:`langChange flagEn`,
+      tgm:'Telegram',
+        wha:'WhatsApp',
+        vbr:'Viber',
+        msg:'Mail'
     },
-    card:'',
+    card:CardRu,
     rus:null
   }
   render() {
     return (
       <div className="App">
         <div className={this.state.lang.lch} onClick={this.Lang}></div>
-        <div className ={this.state.lang.card} ></div>
-        <div className='CardBack'></div>
+        <div className ={this.state.lang.card}></div>
+        
         <div className='Controls'  style={{display:this.state.Show}}>
           <div className='wbut AddContact'onClick={this.down}>
           <div className="svg add">
             
           </div>
           <div className='svg_text'>
-            {this.state.lang.add}<br/>{this.state.lang.add2}
+            {this.state.lang.add}
           </div>
           </div>
 
@@ -56,7 +58,7 @@ class App extends PureComponent {1
               
             </div>
             <div className='svg_text'>
-              {this.state.lang.call}<br/>{this.state.lang.me}
+              {this.state.lang.call}
             </div>
           </a>
           <div className='wbut Msg' onClick={this.msg}>
@@ -64,15 +66,24 @@ class App extends PureComponent {1
               
             </div>
             <div className='svg_text'>
-              {this.state.lang.mess}<br/>{this.state.lang.me}
+              {this.state.lang.mess}
             </div>
           </div>
         </div>
         <div className='Messages' style={{display:this.state.Msg}}>
-          <a className='msges Tgm' title="Telegram" href="tg://resolve?domain=nickname"/>
-          <a className='msges Whp' title="WhatsApp" href="whatsapp://send?phone=+79153602266"/>
-          <a className='msges Vbr' title="Viber" href="viber://chat?number=+79153602266"/>
-          <div className='msges Mail' onClick={this.sendMail}/>
+          
+            <a className='msges Tgm' title="Telegram" href="tg://resolve?domain=nickname">
+              <p className='msgesText'>{this.state.lang.tgm}</p>
+            </a>
+           <a className='msges Whp' title="WhatsApp" href="whatsapp://send?phone=+79153602266">
+            <p className='msgesText'>{this.state.lang.wha}</p>
+          </a>
+          <a className='msges Vbr' title="Viber" href="viber://chat?number=+79153602266">
+            <p className='msgesText'>{this.state.lang.vbr}</p>
+          </a>
+          <div className='msges Mail' onClick={this.sendMail}>
+            <p className='msgesText'>{this.state.lang.msg}</p>
+          </div>
           <div className='close' onClick={this.close}/>
         </div>
         
@@ -83,7 +94,7 @@ class App extends PureComponent {1
     this.setState({Show:'none',Msg:'flex'});
   }
   sendMail=()=>{
-    return window.open('mailto:nikita.ilin@sms-online.com','_self');
+    return window.open(`mailto:${this.state.card.email}`,'_self');
   }
   close=()=>{
     this.setState({Show:'flex',Msg:'none'});
@@ -91,31 +102,36 @@ class App extends PureComponent {1
   down=()=>{
   const result = () =>vCard.toVCard(this.state.card);
     let text = result();
-    let blob = new Blob([text], {type:"application/vcf; charset=utf-8"});
+    let blob = new Blob([text], {type:"charset=utf-8"});
     saveAs(blob,'vCard.vcf');
     
   }
   ch=()=>{
     this.state.rus?this.setState({
       lang:{
-        add:`ДОБАВИТЬ`,
-        add2:`в контакты`,
-        call:`ПОЗВОНИТЬ`,
-        me:`мне`,
-        mess:`НАПИСАТЬ`,
+        add:`Добавить`,
+        call:`Позвонить`,
+        mess:`Написать`,
         card:`CardFace CardFaceRu`,
         lch:`langChange flagEn`,
+        tgm:'Telegram',
+        wha:'WhatsApp',
+        vbr:'Viber',
+        msg:'Mail'
+        
       },
       card:CardRu
     }):this.setState({
       lang:{
-        add:`ADD`,
-        add2:`me`,
-        call:`CALL`,
-        me:`me`,
-        mess:`WRITE`,
+        add:`Add`,
+        call:`Call`,
+        mess:`Write`,
         card:`CardFace CardFaceEn`,
         lch:`langChange flagRu`,
+        tgm:'Telegram',
+        wha:'WhatsApp',
+        vbr:'Viber',
+        msg:'Mail'
       },
       card:CardEng
       
@@ -123,6 +139,7 @@ class App extends PureComponent {1
   } 
   Lang=()=>{
     this.setState({rus:!this.state.rus})
+    console.log(this.state.card)
     return this.ch();
   }
   
@@ -130,5 +147,3 @@ class App extends PureComponent {1
 
 export default App;
 
-
-//changed charset of vcf and c-type
