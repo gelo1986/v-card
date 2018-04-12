@@ -104,7 +104,8 @@
       flex-direction: row;
       width: 80%;
       height: 80px;
-      margin-bottom:128px;
+      position:absolute;
+      margin-bottom:80px;
     }
 }
  
