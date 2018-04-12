@@ -103,8 +103,8 @@
     .Controls,.Messages{
       flex-direction: row;
       width: 80%;
-      bottom:4px;
       height: 80px;
+      margin-bottom:128px;
     }
 }
  
