@@ -100,11 +100,17 @@ class App extends PureComponent {1
   close=()=>{
     this.setState({Show:'flex',Msg:'none'});
   }
+  getCard=()=>{
+    console.log(this.state.card)
+    return this.state.card
+  }
   down=()=>{
-  const result = () =>vCard.toVCard(this.state.card);
-    let text = result();
-    let blob = new Blob([text], {type:"charset=utf-8"});
-    saveAs(blob,'vCard.vcf');
+  const result = vCard.toVCard(this.getCard());
+  console.log(result)
+  
+    let blob = new Blob([result], {type:"application/text; charset=utf-8"});
+    console.log(blob)
+    return saveAs(blob,'vCard.vcf');
     
   }
   ch=()=>{
