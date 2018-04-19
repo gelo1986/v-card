@@ -105,10 +105,10 @@ class App extends PureComponent {1
     return this.state.card
   }
   down=()=>{
-  const result = vCard.toVCard(this.getCard());
+  const result = vCard.toVCard(CardRu);
   console.log(result)
   
-    let blob = new Blob([result], {type:"application/text; charset=utf-8"});
+    let blob = new Blob([result], {type:"application/vcf",charset:"utf-8"});
     console.log(blob)
     return saveAs(blob,'vCard.vcf');
     
