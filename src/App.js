@@ -107,8 +107,7 @@ class App extends PureComponent {1
   down=()=>{
   const result = vCard.toVCard(this.getCard());
   console.log(result)
-  
-    let blob = new Blob([result], {type:"text/x-vcard",charset:'utf-8',contentDisposition:'attachment'});
+    let blob = new Blob([result], {'Content-Type':'text/vcard; name="vCard.vcf"','Content-Disposition': 'inline; filename="vCard.vcf"'});
     console.log(blob)
     return saveAs(blob,'vCard.vcf');
     
