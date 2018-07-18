@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import './App.css'
-import {saveAs} from 'file-saver'
 import vCard from 'simple-vcard'
+import * as FileSaver from 'file-saver'
+
 
 
 
@@ -101,16 +102,12 @@ class App extends PureComponent {1
     this.setState({Show:'flex',Msg:'none'});
   }
   getCard=()=>{
-    console.log(this.state.card)
     return this.state.card
   }
   down=()=>{
   const result = vCard.toVCard(this.getCard());
-  console.log(result)
-    let blob = new Blob([result], {'Content-Type':'text/vcard; name="vCard.vcf"','Content-Disposition': 'inline; filename="vCard.vcf"'});
-    console.log(blob)
-    return saveAs(blob,'vCard.vcf');
-    
+    let file = new File([result], ["vCard.vcf"], {type:'text/x-vcard'});
+    FileSaver.saveAs(file);
   }
   ch=()=>{
     this.state.rus?this.setState({
