@@ -33,7 +33,6 @@
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center center;
-    position:fixed;
     bottom:16px;
     right:4px;
   }
@@ -73,7 +72,6 @@
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center center;
-    position: fixed;
     bottom:32px;
     left: calc(50% - 14px)
   }
@@ -217,7 +215,7 @@
   text-align:center;
 }
 .msgesText{
-
+  margin-top: 24px;
 }
 .svg,.msges{
   width:38px;
@@ -247,4 +245,14 @@
 }
 .msges,.close,.svg{
   box-shadow: 0px 12px 24px -10px #000;
+}
+.next{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  width:100%;
+  font-size:12px;
+  color:''
 }

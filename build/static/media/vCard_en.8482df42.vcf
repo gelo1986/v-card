@@ -1,0 +1,8 @@
+BEGIN:VCARD
+N:Nikita;Ilin;;SMS-Online;
+ADR;INTL;PARCEL;WORK:;;Main str;Washington;Columbia;;
+EMAIL;INTERNET:test@test.com
+ORG:SMS-Online
+TEL;WORK:+799999999
+TITLE:CEO
+END:VCARD

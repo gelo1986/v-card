@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import './App.css'
 import vCard from 'simple-vcard'
 import * as FileSaver from 'file-saver'
-
+import * as vc_en from './VCF/vCard_en.vcf'
+import * as vc_ru from './VCF/vCard_ru.vcf'
 
 
 
@@ -20,7 +21,7 @@ let CardRu={
   address1 : "Москва,Маршала Рыбалко 2 к.6",
   title : "Ильин Никита"
 }
-class App extends PureComponent {1
+class App extends PureComponent {
   state={
     Show:'flex',
     Msg:'none',
@@ -35,7 +36,8 @@ class App extends PureComponent {1
         vbr:'Viber',
         msg:'Mail'
     },
-    card:CardRu,
+    
+    card:vc_ru,
     rus:null
   }
   render() {
@@ -46,9 +48,9 @@ class App extends PureComponent {1
         
         <div className='Controls'  style={{display:this.state.Show}}>
           <div className='wbut AddContact'onClick={this.down}>
-          <div className="svg add">
+          <a className="svg add" href={`${this.state.card}`} download>
             
-          </div>
+          </a>
           <div className='svg_text'>
             {this.state.lang.add}
           </div>
@@ -72,21 +74,23 @@ class App extends PureComponent {1
           </div>
         </div>
         <div className='Messages' style={{display:this.state.Msg}}>
-          
-            <a className='msges Tgm' title="Telegram" href="tg://resolve?domain=nickname">
-              <p className='msgesText'>{this.state.lang.tgm}</p>
-            </a>
-          <a className='msges Vbr' title="Viber" href="viber://chat?number=+79153602266">
-            <p className='msgesText'>{this.state.lang.vbr}</p>
-          </a>
-           <a className='msges Whp' title="WhatsApp" href="whatsapp://send?phone=+79153602266">
-            <p className='msgesText'>{this.state.lang.wha}</p>
-          </a>
-          
-          <div className='msges Mail' onClick={this.sendMail}>
-            <p className='msgesText'>{this.state.lang.msg}</p>
+          <div className='next'>
+                <a className='msges Tgm' title="Telegram" href="tg://resolve?domain=nickname">
+                <p className='msgesText'>{this.state.lang.tgm}</p>
+              </a>
+              <a className='msges Vbr' title="Viber" href="viber://chat?number=+79153602266">
+                <p className='msgesText'>{this.state.lang.vbr}</p>
+              </a>
+              <a className='msges Whp' title="WhatsApp" href="whatsapp://send?phone=+79153602266">
+                <p className='msgesText'>{this.state.lang.wha}</p>
+              </a>
+              
+                <div className='msges Mail' onClick={this.sendMail}>
+                <p className='msgesText'>{this.state.lang.msg}</p>
+              </div>
+              <div className='close' onClick={this.close}/>
           </div>
-          <div className='close' onClick={this.close}/>
+          
         </div>
         
       </div>
@@ -104,11 +108,7 @@ class App extends PureComponent {1
   getCard=()=>{
     return this.state.card
   }
-  down=()=>{
-  const result = vCard.toVCard(this.getCard());
-    let file = new File([result], ["vCard.vcf"], {type:'text/x-vcard'});
-    FileSaver.saveAs(file);
-  }
+  
   ch=()=>{
     this.state.rus?this.setState({
       lang:{
@@ -123,7 +123,7 @@ class App extends PureComponent {1
         msg:'Mail'
         
       },
-      card:CardRu
+      card:vc_ru
     }):this.setState({
       lang:{
         add:`Add`,
@@ -136,7 +136,7 @@ class App extends PureComponent {1
         vbr:'Viber',
         msg:'Mail'
       },
-      card:CardEng
+      card:vc_en
       
     })
   } 
